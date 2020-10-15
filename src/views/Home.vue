@@ -5,7 +5,7 @@
 <script>
 export default {
   created () {
-    this.$api.get(
+    this.$axios.get(
       '/Base/getEmployee', 
       null, 
       r => {console.log(r)}
@@ -17,5 +17,5 @@ export default {
 
 
 <style>
-.t{ color: red;}
+.t{ color: red;font-size: 20px;}
 </style>

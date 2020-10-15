@@ -5,9 +5,9 @@ import App from './App';
 import router from './router/router.js';
 
 // 引用API文件
-import api from './api/index.js';
+import axios from './api/axios.js';
 // 将API方法绑定到全局
-Vue.prototype.$api = api;
+Vue.prototype.$axios = axios;
 
 Vue.config.productionTip = false;
 
