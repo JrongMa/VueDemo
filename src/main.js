@@ -9,6 +9,9 @@ import axios from './api/axios.js';
 // 将API方法绑定到全局
 Vue.prototype.$axios = axios;
 
+import datetimeDo from './utils/index';
+Vue.prototype.$datetimeDo = datetimeDo;
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

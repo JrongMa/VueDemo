@@ -5,7 +5,7 @@
       <h1>test</h1>
       <ul>
         <li v-for="item in list" :key="item.emp_id">
-          <time v-text="item.cf_date"></time>
+          <time v-text="$datetimeDo.goodTime(item.cf_date)"></time>
           <router-link :to="'/content/' + item.emp_id">
             {{ item.emp_name }}
           </router-link>
