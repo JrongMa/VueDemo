@@ -1,21 +1,52 @@
 <template>
-  <div class="t">home page</div>
+  <div>
+   <Header></Header>
+    <div class="article_list">
+      <h1>test</h1>
+      <ul>
+        <li v-for="item in list" :key="item.emp_id">
+          <time v-text="item.cf_date"></time>
+          <router-link :to="'/content/' + item.emp_id">
+            {{ item.emp_name }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
+
+    <Footer></Footer>
+  </div>
 </template>
 
+
+
+
 <script>
+import Header from '../components/header.vue';
+import Footer from '../components/footer.vue';
+
 export default {
-  created () {
-    this.$axios.get(
-      '/Base/getEmployee', 
-      null, 
-      r => {console.log(r)}
-    )
-  }
-  
-}
+  components: {Header,Footer},
+  data() {
+    return {
+      list: [],
+    };
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.$axios.get("/Base/GetEmployee2", null, (r) => {
+        this.list = r.data;
+        console.log(r);
+      });
+    },
+  },
+};
 </script>
 
-
 <style>
-.t{ color: red;font-size: 20px;}
+.article_list {
+  margin: auto;
+}
 </style>

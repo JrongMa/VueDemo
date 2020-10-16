@@ -2,6 +2,7 @@
 var root = '/api';
 // 引用axios
 var axios = require('axios');
+
 // 自定义判断元素类型JS
 function toType(obj) {
   return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
@@ -53,10 +54,14 @@ function apiAxios(method, url, params, success, failure) {
         }
       }
     })
-    .catch(function (err) {
-      let res = err.response;
-      if (err) {
-        window.alert('api error, HTTP CODE: ' + res.status);
+    .catch(function (error) {
+      let res = error.response;
+      if (res) {
+        console.log("测试",res.data);
+        console.log("测试",res.status);
+        console.log("测试",res.headers);
+      }else{
+        console.log('error',res.data);
       }
     });
 }
