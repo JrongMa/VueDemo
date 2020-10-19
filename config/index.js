@@ -18,7 +18,7 @@ module.exports = {
         target: 'http://localhost:62499/',
         changeOrigin: true,
         pathRewrite: {
-              '^/api': ''
+              '^/api': '' //可以隐藏url中的 /api 
         }
       }
     },

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <p v-text="dat.emp_name"></p>
+    <p>{{$route.params.id}}</p>
+    <h1>{{this.id}}</h1>
+    <ul>
+      <li>{{this.dat.Emp_name}}</li>
+      <li>{{this.dat.Sy_flag}}</li>
+    </ul>
   </div>
 </template>
 
@@ -11,17 +16,17 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      dat: {},
+      dat: {}
     };
   },
   created() {
-    console.log(this.id);
     this.getdate();
   },
   methods: {
     getdate() {
-      this.$axios.get("/Base/GetEmployee2/"+this.id, null, (r) => {
+      this.$axios.get("/Base/GetSingleEmplpyee",{id:this.id},(r)=>{
         this.dat = r.data;
+        console.log(r.data);
       });
     },
   },

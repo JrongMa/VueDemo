@@ -10,11 +10,7 @@ export default new Router({
   mode: "history",
   base: process.env.Base_URL,
   routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: Home
-    },
+    { path: "/", name: "Home", component: Home },
     { path: "/index", component: Index },
     { path: "/content/:id", component: Content }
   ]
